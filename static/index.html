@@ -1,0 +1,32 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ authHref " static/bulma.min.css" }}">
+	<link rel="stylesheet" href="{{ authHref " static/styles.css" }}">
+	<title>Simple Web Media Viewer</title>
+</head>
+
+<body>
+	<div class="grid is-col-min-6 gap-4">
+		{{ range $data := . }}
+		<a href=" {{$data.Name | authHref }}">
+			<div data-component class="has-text-centered smol-card-component">
+				<div class="preview">
+					<img class="bg" src="{{$data.Thumb | url}}" alt="{{$data.Name}}">
+					<img src="{{$data.Thumb | url}}" alt="{{$data.Name}}">
+					<h2 class="duration">{{$data.Duration | prettyTime}}</h2>
+				</div>
+				<h3>{{$data.Name | prettyName}}</h3>
+				<small>{{$data.Size | prettySize}}</small>
+			</div>
+		</a>
+		{{ end }}
+	</div>
+</body>
+
+</html>
+{{ end }}

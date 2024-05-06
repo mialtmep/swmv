@@ -1,0 +1,98 @@
+* {
+	font-family: "JetBrainsMonoNL Nerd Font", monospace;
+}
+
+body {
+	margin: 8px;
+}
+
+.preview {
+	position: relative;
+	text-align: center;
+}
+
+.duration {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	background: rgba(0, 0, 0, 0.7);
+	/*   border-radius: 0.5rem; */
+	color: white;
+	margin: 0 !important;
+	padding: 2px 4px;
+}
+
+p,
+a,
+h3 {
+	color: var(--bulma-text);
+	text-decoration: none;
+}
+
+h3 {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+a {
+	display: block;
+	height: 100%;
+}
+
+.smol-card-component {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	box-shadow: 0 0 0.5rem hsl(0 0% 0% / 35%);
+	/*     border-radius: 0.5rem; */
+	/*     border: solid 1px; */
+}
+
+.smol-card-component img:not(.bg) {
+	object-fit: contain;
+	aspect-ratio: 1/1;
+	width: 100%;
+	height: auto;
+}
+
+.smol-card-component img {
+	/*   border-radius: 0.5rem 0.5rem; */
+}
+
+.smol-card-component :not(img) {
+	margin-left: 1rem;
+	margin-right: 1rem;
+
+}
+
+.smol-card-component :not(img):first-child {
+	margin-top: 1rem;
+}
+
+/* Enhanced `:not()` accepts a selector list,
+but as a fallback you can chain `:not()` instead */
+.smol-card-component :last-of-type:not(img, h2, h3, h4) {
+	margin-bottom: 1rem;
+}
+
+.smol-card-component :not(h2, h3, h4) {
+	font-size: 0.9rem;
+}
+
+.smol-card-component a {
+	align-self: start;
+}
+
+.bg {
+	position: absolute;
+	top: 0px;
+	z-index: -1;
+	filter: blur(8px);
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	width: 100%;
+	display: inline;
+	overflow: hidden;
+	/*   clip-path: rect(0 0 100% 100% round 0.5rem); */
+	clip-path: rect(0 0 100% 100%);
+}
